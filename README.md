@@ -23,7 +23,7 @@ A simple and responsive personal profile webpage built using **HTML** and **CSS*
 
 ```
 Profile-Website/
-│── index.html
+│── profile.html
 │── README.md
 ```
 
@@ -32,12 +32,12 @@ Profile-Website/
 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/Profile-Website.git
+git clone https://github.com/Vishesh786900/Profile-Website.git
 ```
 
 2. Open the project folder.
 
-3. Run the project by opening `index.html` in any web browser.
+3. Run the project by opening `profile.html` in any web browser.
 
 ## 📸 Preview
 
@@ -105,7 +105,7 @@ This project is licensed under the MIT License.
 
 **Vishesh Shrikhande**
 
-- GitHub: https://github.com/your-github-username
+- GitHub: https://github.com/Vishesh786900
 - Email: visheshs.ml25@sbjit.edu.in
 
 ---
