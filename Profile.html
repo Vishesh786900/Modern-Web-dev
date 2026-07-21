@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: bisque;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .profile-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .profile-title {
+            color: rgb(123, 8, 8);
+            font-size: 3em;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .profile-image {
+            display: block;
+            margin: 0 auto 24px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid rgb(123, 8, 8);
+            padding: 4px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid rgb(123, 8, 8);
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: rgb(123, 8, 8);
+            font-size: 1.4em;
+        }
+
+        .card p {
+            margin: 10px 0;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .card p strong {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <header class="profile-header">
+            <h1 class="profile-title">My Profile</h1>
+        </header>
+
+        <img src="https://avatars.githubusercontent.com/u/226534854?v=4" alt="Profile Picture" class="profile-image">
+
+        <div class="cards">
+            <section class="card">
+                <h2>Personal Info</h2>
+                <p><strong>Name</strong>: Vishesh Shrikhande</p>
+                <p><strong>Age</strong>: 19</p>
+                <p><strong>Gender</strong>: Male</p>
+                <p><strong>College</strong>: SB Jain Institute of Technology and Management</p>
+            </section>
+
+            <section class="card">
+                <h2>Interests &amp; Skills</h2>
+                <p><strong>Hobbies</strong>: Sketching, listening to music, travelling</p>
+                <p><strong>Skills</strong>: HTML, CSS, JavaScript, Python</p>
+                <p><strong>Strengths</strong>: Problem solving, teamwork, communication</p>
+            </section>
+
+            <section class="card">
+                <h2>Contact</h2>
+                <p><strong>Phone</strong>: 8698402955</p>
+                <p><strong>Email</strong>: visheshs.ml25@sbjit.edu.in</p>
+                <p><strong>Address</strong>: Tikhe Layout, Railway Station Road, Kalmeshwar, Nagpur</p>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
