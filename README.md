@@ -35,7 +35,7 @@ Student-Registration-Form/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/Student-Registration-Form.git
+git clone https://github.com/Vishesh786900/Student-Registration-Form.git
 ```
 
 ### 2. Open the Project
@@ -129,7 +129,7 @@ This project is licensed under the MIT License.
 
 **Vishesh Shrikhande**
 
-- GitHub: https://github.com/your-github-username
+- GitHub: https://github.com/Vishesh786900
 - Email: visheshs.ml25@sbjit.edu.in
 
 ---
