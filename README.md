@@ -423,3 +423,216 @@ SB Jain Institute of Technology, Management & Research
 ## 📄 License
 
 This project is created for educational and college event purposes only.
+
+
+# 🛍️ Nova Product Showcase
+
+A responsive **Product Showcase webpage** built with **HTML and Tailwind CSS**. The page is designed to provide a seamless shopping experience across smartphones, tablets, and desktop computers.
+
+## 📌 Project Overview
+
+The Nova Product Showcase presents a modern online-store landing page featuring:
+
+* Responsive navigation
+* Hero section for the new collection
+* Featured product section
+* Responsive product cards
+* Product categories and pricing
+* Store benefits section
+* Responsive footer
+* Mobile-first responsive design
+
+The layout uses **Tailwind CSS Flexbox utilities and responsive breakpoints** instead of custom CSS.
+
+## 🛠️ Technologies Used
+
+* **HTML5** – Page structure and semantic elements
+* **Tailwind CSS** – Styling and responsive design
+* **Flexbox** – Flexible page and product layouts
+* **Responsive Breakpoints** – `sm:`, `md:`, and `lg:`
+* **JavaScript** – Tailwind CSS CDN setup
+
+## 📂 Project Structure
+
+```text
+nova-product-showcase/
+│
+├── index.html
+└── README.md
+```
+
+## 🚀 Getting Started
+
+### 1. Clone or download the project
+
+Download the project files to your computer.
+
+### 2. Open the project
+
+Open the project folder in your preferred code editor, such as Visual Studio Code.
+
+### 3. Run the webpage
+
+Simply open `index.html` in a web browser.
+
+Alternatively, use the **Live Server** extension in Visual Studio Code for a better development experience.
+
+## 🎨 Tailwind CSS
+
+This project uses the Tailwind CSS CDN:
+
+```html
+<script src="https://cdn.tailwindcss.com"></script>
+```
+
+Therefore, no Tailwind installation or build process is required.
+
+## 📱 Responsive Design
+
+The webpage adapts to different screen sizes using Tailwind's responsive prefixes.
+
+| Screen Size   | Layout                                |
+| ------------- | ------------------------------------- |
+| Mobile        | Single-column product layout          |
+| Small (`sm`)  | Two-column product layout             |
+| Medium (`md`) | Horizontal hero and featured sections |
+| Large (`lg`)  | Four-column product layout            |
+
+### Example
+
+```html
+<article class="w-full sm:w-1/2 lg:w-1/4 px-3 mb-8">
+```
+
+This makes each product:
+
+* `w-full` → 1 column on mobile
+* `sm:w-1/2` → 2 columns on small screens
+* `lg:w-1/4` → 4 columns on large screens
+
+## 🧩 Main Sections
+
+### 1. Header
+
+Contains:
+
+* NOVA logo
+* Home link
+* Collection link
+* About link
+* Cart link
+
+### 2. Hero Section
+
+Introduces the new product collection with:
+
+* Collection heading
+* Description
+* Call-to-action buttons
+* Featured product visual
+
+### 3. Featured Product
+
+Highlights the Nova Wireless Headphones with:
+
+* Product image placeholder
+* Product description
+* Current and original price
+* Add to Cart button
+
+### 4. Product Collection
+
+Displays four products:
+
+* Nova Runner
+* Urban Backpack
+* Edge Sunglasses
+* Nova Smartwatch
+
+The product cards automatically adjust their layout based on screen size.
+
+### 5. Benefits Section
+
+Highlights:
+
+* Free Shipping
+* Easy Returns
+* Secure Checkout
+
+### 6. Footer
+
+Contains:
+
+* Copyright information
+* Privacy link
+* Terms link
+* Contact link
+
+## ✨ Key Tailwind Classes Used
+
+Some important Tailwind utilities used in the project include:
+
+```text
+flex
+flex-col
+flex-row
+flex-wrap
+items-center
+justify-between
+w-full
+sm:w-1/2
+lg:w-1/4
+max-w-7xl
+mx-auto
+px-6
+py-16
+rounded-xl
+shadow-lg
+hover:shadow-lg
+```
+
+These utilities provide the responsive layout, spacing, alignment, sizing, and visual styling.
+
+## 📸 Customization
+
+You can easily customize the project by changing:
+
+* Product names
+* Product prices
+* Product descriptions
+* Product images
+* Brand name
+* Colors
+* Navigation links
+* Hero content
+* Footer information
+
+For example, replace the emoji product placeholders with real images:
+
+```html
+<img
+  src="images/headphones.jpg"
+  alt="Nova Wireless Headphones"
+  class="w-full h-full object-cover"
+/>
+```
+
+## 🌐 Browser Compatibility
+
+The webpage works with modern browsers including:
+
+* Google Chrome
+* Mozilla Firefox
+* Microsoft Edge
+* Safari
+
+## 📄 License
+
+This project is created for educational and demonstration purposes. You are free to modify and use the code for your own projects.
+
+## 👨‍💻 Author
+
+**Nova Product Showcase**
+
+Built with HTML5 and Tailwind CSS.
+
