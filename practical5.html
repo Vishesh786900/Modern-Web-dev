@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chulha Junction | Punjabi Dhaba</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Rye&display=swap" rel="stylesheet">
+	<style>
+		:root { --saffron: #e87523; --chilli: #a83224; --leaf: #355c3a; --cream: #fff4dc; --ink: #2f241c; }
+		body { background: var(--cream); background-image: radial-gradient(#d9a15a 0.8px, transparent 0.8px); background-size: 18px 18px; }
+		h1, h2, h3, .font-display { font-family: 'Rye', Georgia, serif; letter-spacing: 0; }
+		.font-sans { font-family: 'DM Sans', sans-serif; }
+		header { background: rgba(255, 244, 220, 0.96) !important; border-color: #e3b66f !important; }
+		.dhaba-rule { height: 7px; background: repeating-linear-gradient(135deg, var(--chilli) 0 12px, #f4c45f 12px 24px, var(--leaf) 24px 36px); }
+		.menu-panel { background: rgba(255, 255, 255, 0.8); border-top: 7px solid var(--saffron); }
+		.dhaba-card { border-color: #e3c184 !important; border-radius: 0.4rem !important; box-shadow: 4px 4px 0 #e6c477 !important; }
+		.dhaba-card img { filter: saturate(1.15) contrast(1.03); }
+		.dhaba-stamp { border: 2px dashed #f4c45f; transform: rotate(-3deg); }
+	</style>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						ink: '#2f241c',
+						tomato: '#a83224',
+						cream: '#fff4dc',
+						mint: '#d8e0b5'
+					},
+					fontFamily: {
+						display: ['Rye', 'Georgia', 'serif'],
+						sans: ['DM Sans', 'sans-serif']
+					}
+				}
+			}
+		};
+	</script>
+</head>
+<body class="bg-cream font-sans text-ink">
+	<div class="dhaba-rule"></div>
+	<header class="border-b border-orange-100 bg-white/90">
+		<nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5" aria-label="Main navigation">
+			<a href="#top" class="font-display text-2xl font-bold tracking-tight text-tomato">Chulha <span class="text-ink">Junction</span></a>
+			<div class="hidden items-center gap-8 text-sm font-bold md:flex">
+				<a href="#menu" class="hover:text-tomato">Thali menu</a>
+				<a href="#about" class="hover:text-tomato">Our adda</a>
+				<a href="#contact" class="hover:text-tomato">Contact</a>
+			</div>
+			<a href="#menu" class="rounded-full bg-tomato px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-red-700">Book a table</a>
+		</nav>
+	</header>
+
+	<main id="top">
+		<section class="mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 md:grid-cols-2 md:py-24">
+			<div>
+				<p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-tomato">Sat sri akaal, ji</p>
+				<h1 class="max-w-xl font-display text-5xl font-bold leading-tight md:text-7xl">Desi swaad, straight from the chulha.</h1>
+				<p class="mt-6 max-w-lg text-lg leading-8 text-stone-600">Hot tandoori breads, slow-cooked Punjabi classics, and generous portions served with the warmth of a family dhaba.</p>
+				<div class="mt-8 flex flex-wrap gap-4">
+					<a href="#menu" class="rounded-full bg-ink px-6 py-3 font-bold text-white transition hover:bg-stone-700">See today's menu</a>
+					<a href="#about" class="rounded-full border-2 border-ink px-6 py-3 font-bold transition hover:bg-white">Meet the family</a>
+				</div>
+			</div>
+			<div class="relative mx-auto w-full max-w-md">
+				<div class="absolute -right-3 -top-3 h-full w-full rounded-4xl bg-mint"></div>
+				<img class="relative h-104 w-full rounded-4xl object-cover shadow-xl" src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&w=900&q=85" alt="Colorfully decorated Indian food truck serving dhaba meals">
+				<div class="absolute right-4 top-4 rotate-3 rounded-lg border-2 border-yellow-300 bg-tomato px-4 py-2 text-center text-white shadow-lg">
+					<p class="font-display text-lg">Rasoi on wheels</p>
+					<p class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-yellow-100">Truck no. 01</p>
+				</div>
+				<div class="dhaba-stamp absolute -bottom-5 -left-5 rounded-2xl bg-white px-5 py-4 shadow-lg">
+					<p class="text-2xl font-bold text-tomato">100% desi</p>
+					<p class="text-sm text-stone-500">Made fresh, served hot</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="menu" class="menu-panel px-6 py-16 md:py-20">
+			<div class="mx-auto max-w-6xl">
+				<div class="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+					<div>
+						<p class="text-sm font-bold uppercase tracking-[0.25em] text-tomato">Tandoor se, dil tak</p>
+						<h2 class="mt-2 font-display text-4xl font-bold md:text-5xl">Dhaba favourites</h2>
+					</div>
+					<div class="flex flex-wrap gap-2 text-sm font-bold" aria-label="Food categories">
+						<button class="rounded-full bg-tomato px-4 py-2 text-white">All</button>
+						<button class="rounded-full border border-stone-200 px-4 py-2 hover:border-tomato hover:text-tomato">Mains</button>
+						<button class="rounded-full border border-stone-200 px-4 py-2 hover:border-tomato hover:text-tomato">Sides</button>
+						<button class="rounded-full border border-stone-200 px-4 py-2 hover:border-tomato hover:text-tomato">Drinks</button>
+					</div>
+				</div>
+
+				<div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+					<article class="dhaba-card overflow-hidden rounded-2xl border border-stone-100 bg-cream shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+						<img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=700&q=85" alt="Crisp samosas with chutney" loading="lazy">
+						<div class="p-5">
+							<div class="flex items-start justify-between gap-4"><h3 class="font-display text-2xl font-bold">Amritsari Samosa</h3><span class="font-bold text-tomato">₹90</span></div>
+							<p class="mt-2 text-sm leading-6 text-stone-600">Crisp pastry stuffed with spicy aloo, peas, and our bright mint chutney.</p>
+							<button class="mt-5 w-full rounded-xl border-2 border-ink py-2.5 text-sm font-bold hover:bg-ink hover:text-white">Add to order</button>
+						</div>
+					</article>
+
+					<article class="dhaba-card overflow-hidden rounded-2xl border border-stone-100 bg-cream shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+						<img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=700&q=85" alt="Bowl of rich butter chicken curry" loading="lazy">
+						<div class="p-5">
+							<div class="flex items-start justify-between gap-4"><h3 class="font-display text-2xl font-bold">Dhaba Butter Chicken</h3><span class="font-bold text-tomato">₹320</span></div>
+							<p class="mt-2 text-sm leading-6 text-stone-600">Tender chicken simmered in a buttery tomato gravy with a smoky tandoor finish.</p>
+							<button class="mt-5 w-full rounded-xl border-2 border-ink py-2.5 text-sm font-bold hover:bg-ink hover:text-white">Add to order</button>
+						</div>
+					</article>
+
+					<article class="dhaba-card overflow-hidden rounded-2xl border border-stone-100 bg-cream shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+						<img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=700&q=85" alt="Punjabi thali with naan and curries" loading="lazy">
+						<div class="p-5">
+							<div class="flex items-start justify-between gap-4"><h3 class="font-display text-2xl font-bold">Sarson Saag Thali</h3><span class="font-bold text-tomato">₹280</span></div>
+							<p class="mt-2 text-sm leading-6 text-stone-600">Makki di roti, slow-cooked saag, dal, achar, onion, and a little jaggery.</p>
+							<button class="mt-5 w-full rounded-xl border-2 border-ink py-2.5 text-sm font-bold hover:bg-ink hover:text-white">Add to order</button>
+						</div>
+					</article>
+
+					<article class="dhaba-card overflow-hidden rounded-2xl border border-stone-100 bg-cream shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+						<img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=700&q=85" alt="Tall glass of mango lassi" loading="lazy">
+						<div class="p-5">
+							<div class="flex items-start justify-between gap-4"><h3 class="font-display text-2xl font-bold">Mango Lassi</h3><span class="font-bold text-tomato">₹120</span></div>
+							<p class="mt-2 text-sm leading-6 text-stone-600">Thick, chilled yogurt blended with ripe mango, cardamom, and a pinch of saffron.</p>
+							<button class="mt-5 w-full rounded-xl border-2 border-ink py-2.5 text-sm font-bold hover:bg-ink hover:text-white">Add to order</button>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section id="about" class="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-[1fr_1.4fr] md:items-center md:py-20">
+			<div class="rounded-3xl bg-ink p-8 text-white md:p-10">
+				<p class="text-sm font-bold uppercase tracking-[0.25em] text-orange-300">Apna chhota sa adda</p>
+				<h2 class="mt-4 font-display text-4xl font-bold">Pet bhar ke khao, dil se jao.</h2>
+				<p class="mt-5 leading-7 text-stone-300">Our family has been feeding travellers, neighbours, and late-night dreamers from the same smoky chulha since 1998.</p>
+			</div>
+			<div id="contact" class="rounded-3xl border border-orange-100 bg-white p-8 md:p-10">
+				<h2 class="font-display text-3xl font-bold">Pull up a charpai</h2>
+				<div class="mt-6 grid gap-5 text-sm sm:grid-cols-2">
+					<div><p class="font-bold text-tomato">Address</p><p class="mt-1 text-stone-600">24 GT Road<br>Amritsar, Punjab 143001</p></div>
+					<div><p class="font-bold text-tomato">Opening hours</p><p class="mt-1 text-stone-600">Every day<br>11:00 AM - 11:00 PM</p></div>
+				</div>
+				<a href="tel:+911835555014" class="mt-7 inline-block font-bold underline decoration-tomato decoration-2 underline-offset-4">Call us: +91 183 555 5014</a>
+			</div>
+		</section>
+	</main>
+
+	<footer class="border-t border-orange-100 bg-white px-6 py-6 text-center text-sm text-stone-500">
+		<p>© 2026 Chulha Junction. Made fresh, served warmly.</p>
+	</footer>
+</body>
+</html>
