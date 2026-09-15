@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>College FAQ</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-green-900 min-h-screen p-4">
+
+    <div class="max-w-2xl mx-auto mt-10 p-5">
+
+        <h1 class="text-3xl text-amber-200 font-bold text-center mb-6">
+            College FAQ
+        </h1>
+
+        <!-- FAQ 1 -->
+        <div class="bg-green-800 mb-3 rounded shadow">
+
+            <button
+                class="question w-full text-amber-200 text-left p-4 font-semibold text-lg">
+                What are the college timings?
+            </button>
+
+            <div class="answer text-amber-200 hidden p-4 border-t">
+                The college timing is from 9:00 AM to 4:00 PM.
+            </div>
+
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="bg-green-800 mb-3 rounded shadow">
+
+            <button
+                class="question w-full text-amber-200 text-left p-4 font-semibold text-lg">
+                How can I apply for leave?
+            </button>
+
+            <div class="answer text-amber-200 hidden p-4 border-t">
+                Students can apply for leave through the college office.
+            </div>
+
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="bg-green-800 mb-3 rounded shadow">
+
+            <button
+                class="question w-full text-amber-200 text-left p-4 font-semibold text-lg">
+                Where can I find the exam timetable?
+            </button>
+
+            <div class="answer text-amber-200 hidden p-4 border-t">
+                The exam timetable is available on the college notice board
+                and student portal.
+            </div>
+
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="bg-green-800 mb-3 rounded shadow">
+
+            <button
+                class="question w-full text-amber-200 text-left p-4 font-semibold text-lg">
+                How can I contact the department?
+            </button>
+
+            <div class="answer text-amber-200 hidden p-4 border-t">
+                You can contact the department office during college hours.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // Get all questions
+        let questions = document.querySelectorAll(".question");
+
+        // Add click event to each question
+        questions.forEach(function(question) {
+
+            question.addEventListener("click", function() {
+
+                // Get the answer below the clicked question
+                let answer = question.nextElementSibling;
+
+                // Show or hide the answer
+                answer.classList.toggle("hidden");
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
