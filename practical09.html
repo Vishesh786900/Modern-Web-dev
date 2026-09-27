@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CM25124ss</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+    <div class="max-w-md mx-auto mt-10 bg-white p-6 rounded-lg shadow">
+
+        <!-- Heading -->
+        <h1 class="text-2xl font-bold text-center text-blue-600 mb-6">
+            Personal To-Do List
+        </h1>
+
+        <!-- Input Section -->
+        <div class="flex gap-2 mb-5">
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Enter your task"
+                class="flex-1 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+
+            <button
+                onclick="addTask()"
+                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+                Add
+            </button>
+        </div>
+
+        <!-- Task List -->
+        <ul id="taskList" class="space-y-2">
+            <!-- Tasks will appear here -->
+        </ul>
+
+    </div>
+
+    <script>
+        // Add a new task
+        function addTask() {
+
+            let input = document.getElementById("taskInput");
+            let taskText = input.value.trim();
+
+            // Check if input is empty
+            if (taskText === "") {
+                alert("Please enter a task!");
+                return;
+            }
+
+            // Create a new list item
+            let li = document.createElement("li");
+
+            li.className =
+                "flex items-center justify-between bg-gray-100 p-3 rounded";
+
+            // Task text
+            let span = document.createElement("span");
+            span.textContent = taskText;
+
+            // Complete button
+            let completeButton = document.createElement("button");
+            completeButton.textContent = "✓";
+            completeButton.className =
+                "bg-green-500 text-white px-2 py-1 rounded mr-2";
+
+            completeButton.onclick = function () {
+                span.classList.toggle("line-through");
+                span.classList.toggle("text-gray-500");
+            };
+
+            // Delete button
+            let deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.className =
+                "bg-red-500 text-white px-2 py-1 rounded";
+
+            deleteButton.onclick = function () {
+                li.remove();
+            };
+
+            // Buttons container
+            let buttons = document.createElement("div");
+
+            buttons.appendChild(completeButton);
+            buttons.appendChild(deleteButton);
+
+            // Add task and buttons to list item
+            li.appendChild(span);
+            li.appendChild(buttons);
+
+            // Add list item to task list
+            document.getElementById("taskList").appendChild(li);
+
+            // Clear input
+            input.value = "";
+        }
+    </script>
+
+</body>
+</html>
