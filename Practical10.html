@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101410">
+  <title>Rep Timer | Workout Interval</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(132, 204, 22, .12), transparent 38rem),
+        #101410;
+    }
+    .timer-ring {
+      background: conic-gradient(#a3e635 var(--progress), #293126 0);
+      transition: background .15s linear;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-stone-100 antialiased">
+  <main class="mx-auto flex min-h-screen w-full max-w-xl flex-col px-5 py-8 sm:px-8">
+    <header class="flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5 text-sm font-bold tracking-wide" aria-label="Rep Timer home">
+        <span class="grid h-9 w-9 place-items-center rounded-xl bg-lime-300 text-lg text-stone-950">↗</span>
+        REP<span class="text-lime-300">TIMER</span>
+      </a>
+      <span class="rounded-full border border-stone-700 px-3 py-1.5 text-xs text-stone-400">WORKOUT MODE</span>
+    </header>
+
+    <section class="my-auto py-12 text-center" aria-labelledby="workout-title">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[.25em] text-lime-300">Stay consistent</p>
+      <h1 id="workout-title" class="text-3xl font-bold tracking-tight sm:text-4xl">Your rep timer</h1>
+      <p class="mt-2 text-sm text-stone-400">Set your pace. Focus on one rep at a time.</p>
+
+      <div class="mx-auto mt-10 grid h-64 w-64 place-items-center rounded-full p-2 timer-ring sm:h-72 sm:w-72" id="timer-ring" style="--progress: 0deg">
+        <div class="grid h-full w-full place-items-center rounded-full bg-[#151a14]">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[.2em] text-stone-500">Rep</p>
+            <p id="rep-display" class="mt-1 text-7xl font-bold tabular-nums tracking-tight">01<span class="text-3xl text-stone-600">/ 10</span></p>
+            <p id="time-display" class="mt-3 text-sm tabular-nums text-stone-400">00:30 until next rep</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mx-auto mt-8 max-w-sm">
+        <div class="mb-2 flex justify-between text-xs text-stone-500">
+          <span>SESSION PROGRESS</span>
+          <span id="progress-label">0%</span>
+        </div>
+        <div class="h-1.5 overflow-hidden rounded-full bg-stone-800" role="progressbar" aria-label="Workout progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-track">
+          <div id="progress-bar" class="h-full rounded-full bg-lime-300 transition-[width] duration-200" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div class="mt-9 flex justify-center gap-3">
+        <button id="start-button" type="button" class="min-w-36 rounded-xl bg-lime-300 px-6 py-3.5 font-bold text-stone-950 transition hover:bg-lime-200 focus:outline-none focus:ring-2 focus:ring-lime-200 focus:ring-offset-2 focus:ring-offset-[#101410]">
+          Start workout
+        </button>
+        <button id="reset-button" type="button" class="rounded-xl border border-stone-700 px-5 py-3.5 font-semibold text-stone-300 transition hover:border-stone-500 hover:bg-stone-900 focus:outline-none focus:ring-2 focus:ring-stone-500" aria-label="Reset workout">
+          Reset
+        </button>
+      </div>
+      <p id="status-message" class="mt-4 min-h-5 text-sm text-stone-500" aria-live="polite">Ready when you are.</p>
+
+      <div class="mx-auto mt-8 grid max-w-sm grid-cols-2 gap-3 text-left">
+        <label class="rounded-xl border border-stone-800 bg-stone-900/60 p-4">
+          <span class="block text-xs font-medium uppercase tracking-wider text-stone-500">Total reps</span>
+          <span class="mt-2 flex items-center justify-between">
+            <button type="button" class="grid h-8 w-8 place-items-center rounded-lg bg-stone-800 text-lg hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-lime-300" data-adjust="reps" data-change="-1" aria-label="Decrease total reps">−</button>
+            <input id="reps-input" class="w-12 bg-transparent text-center text-xl font-bold tabular-nums focus:outline-none" type="number" min="1" max="99" value="10" aria-label="Total reps">
+            <button type="button" class="grid h-8 w-8 place-items-center rounded-lg bg-stone-800 text-lg hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-lime-300" data-adjust="reps" data-change="1" aria-label="Increase total reps">+</button>
+          </span>
+        </label>
+        <label class="rounded-xl border border-stone-800 bg-stone-900/60 p-4">
+          <span class="block text-xs font-medium uppercase tracking-wider text-stone-500">Seconds / rep</span>
+          <span class="mt-2 flex items-center justify-between">
+            <button type="button" class="grid h-8 w-8 place-items-center rounded-lg bg-stone-800 text-lg hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-lime-300" data-adjust="seconds" data-change="-5" aria-label="Decrease seconds per rep">−</button>
+            <input id="seconds-input" class="w-12 bg-transparent text-center text-xl font-bold tabular-nums focus:outline-none" type="number" min="5" max="300" step="5" value="30" aria-label="Seconds per rep">
+            <button type="button" class="grid h-8 w-8 place-items-center rounded-lg bg-stone-800 text-lg hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-lime-300" data-adjust="seconds" data-change="5" aria-label="Increase seconds per rep">+</button>
+          </span>
+        </label>
+      </div>
+    </section>
+
+    <footer class="flex items-center justify-between border-t border-stone-800 pt-5 text-xs text-stone-600">
+      <span>Find your rhythm.</span>
+      <span>Move at your own pace.</span>
+    </footer>
+  </main>
+
+  <script>
+    const repsInput = document.getElementById("reps-input");
+    const secondsInput = document.getElementById("seconds-input");
+    const repDisplay = document.getElementById("rep-display");
+    const timeDisplay = document.getElementById("time-display");
+    const progressLabel = document.getElementById("progress-label");
+    const progressTrack = document.getElementById("progress-track");
+    const progressBar = document.getElementById("progress-bar");
+    const timerRing = document.getElementById("timer-ring");
+    const startButton = document.getElementById("start-button");
+    const statusMessage = document.getElementById("status-message");
+
+    let completedReps = 0;
+    let elapsedBeforePause = 0;
+    let startedAt = 0;
+    let timerId = null;
+    let finished = false;
+
+    function getSettings() {
+      const reps = Math.min(99, Math.max(1, Number.parseInt(repsInput.value, 10) || 1));
+      const seconds = Math.min(300, Math.max(5, Number.parseInt(secondsInput.value, 10) || 5));
+      repsInput.value = String(reps);
+      secondsInput.value = String(seconds);
+      return { reps, seconds };
+    }
+
+    function formatTime(totalSeconds) {
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+      return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    }
+
+    function render() {
+      const { reps, seconds } = getSettings();
+      const currentRep = Math.min(completedReps + 1, reps);
+      const elapsed = elapsedBeforePause + (timerId ? Date.now() - startedAt : 0);
+      const elapsedSeconds = Math.floor(elapsed / 1000);
+      const justCompleted = finished || (timerId && completedReps >= reps);
+      const repElapsed = justCompleted ? 0 : elapsedSeconds % seconds;
+      const remaining = justCompleted ? 0 : seconds - repElapsed;
+      const progress = Math.min(100, Math.floor((completedReps / reps) * 100));
+
+      repDisplay.innerHTML = `${String(currentRep).padStart(2, "0")}<span class="text-3xl text-stone-600">/ ${String(reps).padStart(2, "0")}</span>`;
+      timeDisplay.textContent = finished ? "Workout complete!" : `${formatTime(remaining)} until next rep`;
+      progressLabel.textContent = `${progress}%`;
+      progressBar.style.width = `${progress}%`;
+      progressTrack.setAttribute("aria-valuenow", String(progress));
+      timerRing.style.setProperty("--progress", `${(repElapsed / seconds) * 360}deg`);
+    }
+
+    function tick() {
+      const { reps, seconds } = getSettings();
+      const elapsed = elapsedBeforePause + Date.now() - startedAt;
+      const totalCompleted = Math.floor(elapsed / (seconds * 1000));
+
+      if (totalCompleted >= reps) {
+        completedReps = reps;
+        elapsedBeforePause = reps * seconds * 1000;
+        clearInterval(timerId);
+        timerId = null;
+        finished = true;
+        startButton.textContent = "Start again";
+        statusMessage.textContent = "Great work — workout complete!";
+      } else {
+        completedReps = totalCompleted;
+      }
+      render();
+    }
+
+    startButton.addEventListener("click", () => {
+      if (timerId) {
+        elapsedBeforePause += Date.now() - startedAt;
+        clearInterval(timerId);
+        timerId = null;
+        startButton.textContent = "Resume workout";
+        statusMessage.textContent = "Paused. Take a breath.";
+        render();
+        return;
+      }
+      if (finished) {
+        completedReps = 0;
+        elapsedBeforePause = 0;
+        finished = false;
+      }
+      getSettings();
+      startedAt = Date.now();
+      timerId = window.setInterval(tick, 100);
+      startButton.textContent = "Pause workout";
+      statusMessage.textContent = "Workout in progress. Keep it steady.";
+      render();
+    });
+
+    document.getElementById("reset-button").addEventListener("click", () => {
+      if (timerId) clearInterval(timerId);
+      timerId = null;
+      completedReps = 0;
+      elapsedBeforePause = 0;
+      finished = false;
+      startButton.textContent = "Start workout";
+      statusMessage.textContent = "Ready when you are.";
+      render();
+    });
+
+    document.querySelectorAll("[data-adjust]").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (timerId) return;
+        const input = button.dataset.adjust === "reps" ? repsInput : secondsInput;
+        const change = Number(button.dataset.change);
+        input.value = String(Number(input.value) + change);
+        getSettings();
+        render();
+      });
+    });
+
+    [repsInput, secondsInput].forEach((input) => {
+      input.addEventListener("change", () => {
+        getSettings();
+        render();
+      });
+    });
+
+    render();
+  </script>
+</body>
+</html>
